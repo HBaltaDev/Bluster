@@ -30,8 +30,8 @@ AProjectile::AProjectile()
 	CollisionBox->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Block);
 	CollisionBox->SetCollisionResponseToChannel(ECC_SkeletalMesh, ECollisionResponse::ECR_Block);
 	
-	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
-	ProjectileMovementComponent->bRotationFollowsVelocity = true;
+	// ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
+	// ProjectileMovementComponent->bRotationFollowsVelocity = true;
 }
 
 // Called when the game starts or when spawned
@@ -54,6 +54,7 @@ void AProjectile::BeginPlay()
 	if (HasAuthority())
 	{
 		CollisionBox->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
+		//CollisionBox->IgnoreActorWhenMoving(Owner, true);
 	}
 }
 

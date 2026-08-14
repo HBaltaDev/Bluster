@@ -19,7 +19,7 @@ AWeapon::AWeapon()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 	bReplicates = true;
-	//SetReplicates(true);
+	SetReplicates(true);
 	
 	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("WeaponMesh"));
 	WeaponMesh->SetupAttachment(RootComponent);
@@ -155,7 +155,7 @@ void AWeapon::SetWeaponState(EWeaponState State)
 		WeaponMesh->SetEnableGravity(true);
 		WeaponMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 		WeaponMesh->SetCollisionResponseToChannel(ECC_Pawn, ECollisionResponse::ECR_Ignore);
-		WeaponMesh->SetCollisionResponseToChannel(ECC_SkeletalMesh, ECollisionResponse::ECR_Ignore);
+		WeaponMesh->SetCollisionResponseToChannel(ECC_SkeletalMesh, ECollisionResponse::ECR_Block);
 		
 		break;
 		
