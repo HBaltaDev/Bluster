@@ -27,4 +27,16 @@ private:
 	UPROPERTY(EditAnywhere)
 	class UNiagaraSystem* ImpactParticleSystem;
 	
+	UPROPERTY(EditAnywhere)
+	UParticleSystem* BeamParticles;
+	
+	UPROPERTY(EditAnywhere)
+	class UNiagaraSystem* MuzzleFlash;
+	
+	UPROPERTY(EditAnywhere)
+	USoundCue* FireSound;
+
+	UPROPERTY(EditAnywhere)
+	USoundCue* HitSound;
+	
 };
